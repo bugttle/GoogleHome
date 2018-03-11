@@ -1,0 +1,20 @@
+{
+  "name": "google-home-applications",
+  "version": "1.0.0",
+  "description": "Google Home Applications",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uqtimes/GoogleHome.git"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^4.11.0",
+    "google-home-notifier": "file:google-home-notifier",
+    "ps4-waker": "^1.4.3"
+  }
+}
