@@ -38,10 +38,13 @@ playstationRef.on('child_changed', (dataSnapshot) => {
 });
 
 function normalizeWord(text) {
-  return text
-    .trim()
-    .replace(/^を\s+(.+)$/, '$1')
-    .replace(/\s+/g, '');
+  const normalizedText =
+    text
+      .trim()
+      .replace(/^を\s+(.+)$/, '$1')
+      .replace(/\s+/g, '');
+  console.log('[' + text + '] => [' + normalizedText + ']');
+  return normalizedText;
 }
 
 
