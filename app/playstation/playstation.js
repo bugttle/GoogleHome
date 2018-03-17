@@ -27,8 +27,12 @@ function startTitle(titleId) {
 }
 
 function doStandby() {
+  return ps4.turnOff();
+}
+
+function waitAndClose(promise) {
   return new Promise((resolve, reject) => {
-    ps4.turnOff().then(() => {
+    promise.then(() => {
       ps4.close();
       resolve();
     }).catch((err) => reject(err));
@@ -40,7 +44,7 @@ function execute(request) {
     const command = commands[request];
     if (command) {
         console.log(command);
-        command()
+        waitAndClose(command())
           .then(() => resolve())
           .catch((err) => reject(err));
     } else {
