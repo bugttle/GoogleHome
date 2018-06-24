@@ -12,6 +12,19 @@ Google Home applications on Node.js.
 - Launch application.
     - torne
 
+```
+$ NODE_PATH=./lib node app/index.js
+```
+
+
+## Bin
+### Google Calendar
+- Fetch schedule and speak schedules.
+
+```
+$ NODE_PATH=./lib node bin/googlecalendar/googlecalendar.js
+```
+
 
 ## Install
 - node packages

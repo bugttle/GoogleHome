@@ -1,4 +1,5 @@
 'use strict';
+
 const path = require('path');
 const {Device} = require('ps4-waker');
 
@@ -43,15 +44,14 @@ function execute(request) {
   return new Promise((resolve, reject) => {
     const command = commands[request];
     if (command) {
-        console.log(command);
-        waitAndClose(command())
-          .then(() => resolve())
-          .catch((err) => reject(err));
+      console.log(command);
+      waitAndClose(command())
+        .then(() => resolve())
+        .catch((err) => reject(err));
     } else {
       reject('unknown command');
     }
   });
 }
-
 
 module.exports.execute = execute;

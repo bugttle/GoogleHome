@@ -1,4 +1,5 @@
 'use strict';
+
 const child_process = require('child_process');
 const path = require('path');
 
@@ -32,6 +33,5 @@ function execute(request) {
     }
   });
 }
-
 
 module.exports.execute = execute;

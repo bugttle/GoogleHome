@@ -1,1 +1,5 @@
+.idea/
 node_modules/
+
+# Secret files
+bin/googlecalendar/.credentials.json

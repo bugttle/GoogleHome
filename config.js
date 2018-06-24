@@ -1,7 +1,7 @@
 'use strict';
 
 // Firebase
-var firebase = {
+const firebase = {
   apiKey: "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
   authDomain: "XXXXXXXXXX.firebaseapp.com",
   databaseURL: "https://XXXXXXXXXX.firebaseio.com",
@@ -17,13 +17,6 @@ const googlehome = {
   language: 'ja',
 };
 
-// LinkStation
-var linkstation = {
-  host: '192.168.XXX.XXX',
-  user: 'XXXXX',
-  password: 'XXXXXXXXXX',
-};
-
 module.exports.firebase = firebase;
 module.exports.googlehome = googlehome;
-module.exports.linkstation = linkstation;
+

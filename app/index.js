@@ -1,13 +1,11 @@
 'use strict';
 
 const firebase = require('firebase');
-const googlehome = require('google-home-notifier');
 
-const config = require('./config');
-const utils = require('./utils');
+const {utils} = require('utils');
+const config = require('../config');
 const linkstation = require('./linkstation/linkstation');
 const playstation = require('./playstation/playstation');
-
 
 firebase.initializeApp(config.firebase);
 const db = firebase.database();
