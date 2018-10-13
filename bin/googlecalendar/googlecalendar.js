@@ -35,21 +35,23 @@ function listEvents(oAuth2Client) {
     if (err) return console.log('The API returned an error: ' + err);
     const events = data.items;
     if (events.length) {
-      events.forEach((event) => {
+      const schedules = events.map((event) => {
         const start = event.start.dateTime || event.start.date;
         console.log(`${start} - ${event.summary}`);
-        notice(event.summary);
+        return event.summary;
       });
+      notice(`明日の予定は、${schedules.join('と、')}です。`);
     } else {
       console.log('No upcoming events found.');
     }
   });
 }
 
-function notice(word) {
+function notice(text) {
+  console.log(`text: ${text}`);
   googlehome.device(config.googlehome.device, config.googlehome.language);
   googlehome.ip(config.googlehome.ip, config.googlehome.language);
-  googlehome.notify(word, (res) => {
-    console.log(res);
+  googlehome.notify(text, (res) => {
+    console.log(`res: ${res}`);
   });
 }
