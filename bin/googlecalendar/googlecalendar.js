@@ -3,6 +3,7 @@
 const path = require('path');
 const {google} = require('googleapis');
 const googlehome = require('google-home-notifier');
+const moment = require('moment');
 
 const {auth} = require('auth');
 const config = require('../../config');
@@ -25,9 +26,18 @@ function listEvents(oAuth2Client) {
     auth: oAuth2Client
   });
 
+  const date = process.argv[2] || '明日';
+  const minNumber = process.argv[3] || 0;
+  const minSuffix = process.argv[4] || 'days';
+  const maxNumber = process.argv[5] || 1;
+  const maxSuffix = process.argv[6] || 'days';
+
+  const now = moment();
+
   calendar.events.list({
     calendarId: 'primary',
-    timeMin: (new Date()).toISOString(),
+    timeMin: now.add(minNumber, minSuffix).toISOString(),
+    timeMax: now.add(maxNumber, maxSuffix).toISOString(),
     maxResults: 10,
     singleEvents: true,
     orderBy: 'startTime',
@@ -40,7 +50,7 @@ function listEvents(oAuth2Client) {
         console.log(`${start} - ${event.summary}`);
         return event.summary;
       });
-      notice(`明日の予定は、${schedules.join('と、')}です。`);
+      notice(`${date}の予定は、${schedules.join('と、')}です。`);
     } else {
       console.log('No upcoming events found.');
     }
