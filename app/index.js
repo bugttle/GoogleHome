@@ -16,9 +16,9 @@ linkstationRef.on('child_changed', (snapshot) => {
   const value = snapshot.val();
   if (value) {
     linkstationRef.set({'request': ''});
-    linkstation.execute(utils.normalizeWord(value))
-      .then((stdout) => console.log(stdout))
-      .catch((error, stderr) => console.log(stderr));
+    linkstation.execute(config.linkstation, utils.normalizeWord(value))
+      .then((msg) => console.log(msg))
+      .catch((err) => console.log(err));
   }
 });
 
@@ -29,7 +29,8 @@ playstationRef.on('child_changed', (dataSnapshot) => {
   if (value) {
     playstationRef.set({'request': ''});
     playstation.execute(utils.normalizeWord(value))
-      .then(() => console.log('ok'))
+      .then((msg) => console.log(msg))
       .catch((err) => console.log(err));
   }
 });
+

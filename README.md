@@ -3,7 +3,9 @@ Google Home applications on Node.js.
 
 ## Applications
 ### LinkStation
-- Login to admin web page and Send request to shutdown.
+- Send Wake On Lan packet to wake up.
+- ~~Login to admin web page and send a request to shutdown.~~
+    - It won't be waked up by WOL if you send a shutdown request.
 - Get power status.
 
 ### PlayStation4
@@ -11,6 +13,7 @@ Google Home applications on Node.js.
 - Do standby.
 - Launch application.
     - torne
+    - Netflix
 
 ```
 $ NODE_PATH=./lib node app/index.js
@@ -32,13 +35,8 @@ $ NODE_PATH=./lib node bin/googlecalendar/googlecalendar.js
 $ npm install
 ~~~
 
-- ruby gems
-~~~shell
-$ gem install net-ping nokogiri
-~~~
-
 - launch
 ~~~shell
-$ node index.js
+$ NODE_PATH=./lib node app/index.js
 ~~~
 
