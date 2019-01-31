@@ -12,6 +12,7 @@ const commands = {
   '起動': () => { return turnOn(); },
   '点けて': () => { return turnOn(); },
   'トルネ': () => { return startTitle('CUSA00442'); },
+  'Netflix': () => { return startTitle('CUSA02988'); },
   // off
   '消して': () => { return doStandby(); },
   '止めて': () => { return doStandby(); },
