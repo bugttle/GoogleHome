@@ -35,7 +35,7 @@ function waitAndClose(promise) {
   return new Promise((resolve, reject) => {
     promise.then(() => {
       ps4.close();
-      resolve();
+      resolve('ok');
     }).catch((err) => reject(err));
   });
 }
@@ -46,7 +46,7 @@ function execute(request) {
     if (command) {
       console.log(command);
       waitAndClose(command())
-        .then(() => resolve())
+        .then((msg) => resolve(msg))
         .catch((err) => reject(err));
     } else {
       reject('unknown command');
